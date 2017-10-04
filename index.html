@@ -1,0 +1,178 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript">
+        jQuery(function($) {
+            $('#search').click(function() {
+                $('#search_input').toggleClass('search-input-open');
+            });
+            $(document).click(function(e) {
+                if (!$(e.target).closest('.form').length) {
+                    $('#search_input').removeClass('search-input-open');
+                }
+            })
+        });
+
+        function incrementValue() {
+            var value = parseInt(document.getElementById('red1').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('red1').value = value;
+        }
+    </script> -->
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header_container">
+            <div id="menu" class="menuClass">
+                <span><i class="fa fa-bars" id="bars"></i></span>
+                <div id="myDropdown" class="dropdown-content">
+                    <ul>
+                        <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fa fa-file"></i> My Proposals</a></li>
+                        <li><a href="#contact"><i class="fa fa-file-text" style="transform: rotate(180deg)"></i> My Reports</a></li>
+                        <li><a href="#about"><i class="fa fa-question-circle-o"></i> Help</a></li>
+                        <li><a href="#about"><i class="fa fa-cog"></i> Setting</a></li>
+                        <li><a href="#about"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h1>
+                <a href="index.html"><img src="images/logo.png" id="logo" alt="Logo"></a>
+            </h1>
+
+            <div class="menu-right">
+
+                <div class="selections">
+                    <form class="form">
+                        <input type="text" name="search" id="search_input" class="search-input" placeholder="&nbsp;Search.." dir="ltr" onfocusout="clearThis(this)">
+                    </form>
+                    <ul>
+                        <li id="search"><i class="fa fa-search"></i></li>
+                        <li><i class="fa fa-bell"></i></li>
+                        <li><i class="fa fa-sign-out"></i></li>
+                        <li>Logout</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+
+        <div class="background">
+            <div class="background1" id="b1"></div>
+            <img src="images/background_3.jpg" id="b2">
+            <div class="background-left">
+                <h1 class="main_text">Let’s grow your business together.</h1>
+                <p class="sub_text">Start creating proposals in 4 simple steps here.</p>
+
+                <div class="button">
+                    <input type="button" id="button" value="Let's Begin" onclick="scrollToTable()">
+                </div>
+            </div>
+            <!--<form>
+     <input type="text" id="number" value="0" />
+    <input type="button" onclick="incrementValue()" value="Increment Value" />
+    </form>-->
+
+            <div class="background-right">
+                <div class="proposal_bar">My proposals</div>
+                <div class="red_circle"><span id="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="displayInProgressItems"></p>Progress</span></div>
+                <div class="green_circle"><span id="green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p id="displayProposedItems"></p>Proposed</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="activitylog">
+        <!-- <p id="demo"></p> -->
+        <h1 class="heading">Activity Log</h1>
+        <!-- <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Proposal Name&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('proposalName','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('proposalName','asc')"></i></div>
+                    </th>
+                    <th>Clients&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('clients','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('clients','asc')"></i></div>
+                    </th>
+                    <th>Last Update&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('lastUpdate','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('lastUpdate','asc')"></i></div>
+                    </th>
+                    <th>Status&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('status','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('status','asc')"></i></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="demo">
+
+            </tbody>
+
+
+
+        </table> -->
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Proposal Name&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('proposalName','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('proposalName','asc')"></i></div>
+                    </th>
+                    <th>Clients&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('clients','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('clients','asc')"></i></div>
+                    </th>
+                    <th>Last Update&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('lastUpdate','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('lastUpdate','asc')"></i></div>
+                    </th>
+                    <th>Status&nbsp;
+                        <div><i class="fa fa-sort-asc" id="desc" onclick="sortTable('status','desc')"></i><i class="fa fa-sort-desc" id="asc" onclick="sortTable('status','asc')"></i></div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <div class="scroll">
+            <table id="demo">
+
+            </table>
+        </div>
+        <footer>
+            <span class="copyRight">&copy; Charter under license from 605, LLC</span>
+        </footer>
+        <script>
+            // jQuery(function($) {
+            //         $('#myBtn').click(function() {
+            //             $('#myDropdown').toggleClass('dropdown-content-open');
+            //         });
+            //         $(document).click(function(e) {
+            //             if (!$(e.target).closest('.dropdown-content').length) {
+            //                 $('#myDropdown').removeClass('dropdown-content-open');
+            //             }
+            //         })
+            //     })
+            // // Get the button, and when the user clicks on it, execute myFunction
+            // document.getElementById("myBtn").onmouseenter = function() {
+            //     myFunction()
+            // };
+
+            // /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+            // function myFunction() {
+            //     document.getElementById("myDropdown").classList.toggle("show");
+
+            // }
+            // document.getElementById("myDropdown").onmouseleave = function() {
+            //     myFunction1()
+            // };
+
+            // function myFunction1() {
+            //     document.getElementById("myDropdown").classList.toggle("hide");
+
+            // }
+        </script>
+        <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
